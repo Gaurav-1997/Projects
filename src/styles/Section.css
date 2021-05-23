@@ -1,0 +1,20 @@
+.section{
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom-width: 2px;
+  min-width: 200px;
+  padding:15px;
+  color:gray;
+border-width: 0 !important; 
+}
+
+.section:hover{
+background-color: whitesmoke;
+border-width: 3px !important;
+}
+
+.section-selected{
+background-color: whitesmoke;
+border-width: 3px !important;
+}
