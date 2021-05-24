@@ -3,9 +3,12 @@ import {Button, IconButton} from "@material-ui/core";
 import { Add, Inbox, Star, Schedule, Send, InsertDriveFile, ExpandMore , Person, Duo, Phone} from "@material-ui/icons";
 import "./styles/Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
+import { useDispatch } from "react-redux";
+import { openComposeModal } from "./app/reducers/mailSlice";
 
 const Sidebar = props => {
 
+  const dispatch = useDispatch();
   //const arr = [{"inbox":false},{"starred":false},{"snoozed":false},{"sent":false},{"drafts":false},{"more":false}];
   const iconSelected =(id)=>{
     console.log(id,"clicked");
@@ -16,10 +19,10 @@ const Sidebar = props => {
     <div className="sidebar">
       <Button 
       className="sidebar_compose"
-      startIcon={
-                <Add fontSize="large" />}>
+      onClick={() => dispatch(openComposeModal())}
+      startIcon={<Add fontSize="large" />}>
         Compose
-        </Button>
+      </Button>
 
         <SidebarOptions Icon={Inbox} title="Inbox"
          number={54} selected={iconSelected==="Inbox"} onClick={iconSelected} />
