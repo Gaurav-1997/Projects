@@ -4,7 +4,7 @@ import { Add, Inbox, Star, Schedule, Send, InsertDriveFile, ExpandMore , Person,
 import "./styles/Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
 import { useDispatch } from "react-redux";
-import { openComposeModal } from "./app/reducers/mailSlice";
+
 
 const Sidebar = props => {
 
@@ -19,8 +19,8 @@ const Sidebar = props => {
     <div className="sidebar">
       <Button 
       className="sidebar_compose"
-      onClick={() => dispatch(openComposeModal())}
-      startIcon={<Add fontSize="large" />}>
+      startIcon={<Add fontSize="large" />}
+      onClick={()=>dispatch({type:"OPEN"})}>
         Compose
       </Button>
 
@@ -54,4 +54,17 @@ const Sidebar = props => {
   );
 };
 
+
+// const mapStateToProps = state =>{
+//   return {
+//     modalState: state.composeModalIsOpen,
+//   }
+// };
+
+// const mapDispatchToProps = dispatch =>{
+//   return{
+//     openCompose: ()=>dispatch({type:"OPEN"}),
+//     closeCompose: ()=>dispatch({type:"CLOSE"})
+//   }
+// }
 export default Sidebar;

@@ -6,13 +6,12 @@ import {BrowserRouter as Router , Switch, Route, Link} from "react-router-dom";
 import Mail from "./Mail";
 import EmailList from "./EmailList";
 import SendMial from "./SendMial";
-import { useSelector, Provider } from "react-redux";
-import { selectcomposeModalIsOpen } from "../src/app/reducers/mailSlice";
+import { useSelector } from "react-redux";
 
 
 export default function App() {
   
-  const composeModalIsOpen = useSelector(selectcomposeModalIsOpen);
+  const composeModalIsOpen = useSelector(state => state.composeModalIsOpen);
 
   return (
     

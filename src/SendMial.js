@@ -2,11 +2,14 @@ import React from "react";
 import { Close } from "@material-ui/icons";
 import { Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
 import "./styles/SendMail.css";
 
 const SendMial = props =>{
 
+  const dispatch = useDispatch();
+  
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   console.log(errors);
   const onSubmit = formData =>{
@@ -17,7 +20,10 @@ const SendMial = props =>{
       <div className="sendMail">
         <div className="sendMail_header">
             <h3>New Message</h3>
+            <Button 
+            onClick={()=>dispatch({type:"CLOSE"})}>
             <Close className="sendMail_close"/>
+            </Button>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
