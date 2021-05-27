@@ -9,6 +9,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@emmetio/extract-abbreviation": "0.2.0",
+    "@firebase/database": "0.10.1",
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
     "@material-ui/styles": "4.11.4",
@@ -16,6 +17,7 @@
     "@reduxjs/toolkit": "1.5.1",
     "eslint": "7.26.0",
     "eslint-plugin-auto-import": "0.1.1",
+    "firebase": "8.6.2",
     "kite": "0.0.1",
     "material-ui": "0.20.2",
     "prettier": "2.3.0",

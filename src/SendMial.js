@@ -3,6 +3,8 @@ import { Close } from "@material-ui/icons";
 import { Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { db } from "./firebase/firebase";
+import firebase from "./firebase/firebase";
 
 import "./styles/SendMail.css";
 
@@ -11,10 +13,19 @@ const SendMial = props =>{
   const dispatch = useDispatch();
   
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  console.log(errors);
+  
+  
   const onSubmit = formData =>{
     console.log(formData);
-  } ;
+    db.collection('emails').add({
+      to: formData.to,
+      subject: formData.subject,
+      message: formData.message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    console.log("push in db");
+    dispatch({type:"CLOSE"});
+  };
 
     return (
       <div className="sendMail">
@@ -30,7 +41,7 @@ const SendMial = props =>{
           <input 
           name="to" 
           placeholder="To" 
-          type="text" 
+          type="email" 
           {...register('to', { required: true })} 
           />
           {errors.to && 
