@@ -1,4 +1,5 @@
 import React from "react";
+import {useSelector} from "react-redux";
 import { IconButton} from "@material-ui/core";
 import {ArrowBack,
      MoveToInbox,
@@ -13,7 +14,10 @@ import { useHistory } from "react-router-dom";
 import "./styles/Mail.css";
 
 const Mail = props => {
+  
   const history = useHistory();
+  const selectedMail = useSelector(state => state.selectedMail);
+  console.log(selectedMail);
   return (
   <div className="mail">
    <div className="mail_tools">
@@ -72,14 +76,15 @@ const Mail = props => {
 
    <div className="mail_body">
       <div className="mail_bodyHeader">
-        <h2>Subject</h2>
+        <h2>{selectedMail?.subject}</h2>
         <LabelImportant className="mail_important"/>
-        <p>Title</p>
-        <p className="mail_time">10pm</p>
+        <p>{selectedMail?.title}</p>
+
+        <p className="mail_time">{selectedMail?.time}</p>
       </div>
 
       <div className="mail_message">
-        <p>This is the message.</p>
+        <p>{selectedMail?.description}</p>
         </div>
      </div>
      

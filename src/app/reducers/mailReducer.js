@@ -1,5 +1,6 @@
 const initialState= {
-  composeModalIsOpen: false
+  composeModalIsOpen: false,
+  selectedMail: null
 };
 
 const mailReducer = (state=initialState, action)=>{
@@ -12,6 +13,9 @@ const mailReducer = (state=initialState, action)=>{
       case "CLOSE_COMPOSE_MODAL":
         newState.composeModalIsOpen = false;
         break;  
+      case "SELECTED_MAIL":
+        newState.selectedMail = { ...action.payload };
+        break;    
       default:
         break;
     };

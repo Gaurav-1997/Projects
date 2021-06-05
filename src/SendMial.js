@@ -3,8 +3,8 @@ import { Close } from "@material-ui/icons";
 import { Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { db } from "./firebase/firebase";
-import firebase from "./firebase/firebase";
+import { db } from "./firebaseUtils/firebase";
+import firebase from "firebase";
 
 import "./styles/SendMail.css";
 
